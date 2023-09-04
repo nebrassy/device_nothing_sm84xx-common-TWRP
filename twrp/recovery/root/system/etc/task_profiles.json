@@ -439,6 +439,7 @@
         }
       ]
     },
+
     {
       "Name": "CameraServiceCapacity",
       "Actions": [
@@ -448,45 +449,6 @@
           {
             "Controller": "cpuset",
             "Path": "camera-daemon"
-          }
-        }
-      ]
-    },
-    {
-      "Name": "CameraProcessCapacityLow",
-      "Actions": [
-        {
-          "Name": "JoinCgroup",
-          "Params":
-          {
-            "Controller": "cpuset",
-            "Path": "camera-background"
-          }
-        }
-      ]
-    },
-    {
-      "Name": "CameraProcessCapacityLower",
-      "Actions": [
-        {
-          "Name": "JoinCgroup",
-          "Params":
-          {
-            "Controller": "cpuset",
-            "Path": "camera-background/background"
-          }
-        }
-      ]
-    },
-    {
-      "Name": "CameraProcessCapacityLowest",
-      "Actions": [
-        {
-          "Name": "JoinCgroup",
-          "Params":
-          {
-            "Controller": "cpuset",
-            "Path": "camera-background/limit"
           }
         }
       ]
@@ -617,7 +579,7 @@
           "Params":
           {
             "Controller": "cpuset",
-            "Path": "system-background"
+            "Path": "foreground"
           }
         }
       ]
@@ -630,7 +592,7 @@
           "Params":
           {
             "Controller": "cpuset",
-            "Path": "system-background"
+            "Path": "foreground"
           }
         }
       ]
@@ -781,18 +743,6 @@
     {
       "Name": "OtaProfiles",
       "Profiles": [ "ServiceCapacityLow", "LowIoPriority", "HighEnergySaving" ]
-    },
-    {
-      "Name": "CPUSET_SP_CAMERA_BACKGROUND",
-      "Profiles": [ "CameraProcessCapacityLow"]
-    },
-    {
-      "Name": "CPUSET_SP_CAMERA_LOWER_BACKGROUND",
-      "Profiles": [ "CameraProcessCapacityLower"]
-    },
-    {
-      "Name": "CPUSET_SP_CAMERA_LIMIT_BACKGROUND",
-      "Profiles": [ "HighEnergySaving", "CameraProcessCapacityLowest", "LowIoPriority", "TimerSlackHigh" ]
     }
   ]
 }
